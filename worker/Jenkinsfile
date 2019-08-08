@@ -7,28 +7,33 @@ pipeline {
     }
 
    stages {
-        dir("worker") {
+
             stage('Build') {
                 steps {
                     echo "Building worker application.."
-                    sh 'mvn compile'
-                }
-            }
+        	    dir("worker") {
+                    	sh 'mvn compile'
+                    }
+            	}
+	    }
 
             stage('Test') {
                 steps {
                     echo "Building worker application.."
-                    sh 'mvn clean test'
-                }
-            }
+        	    dir("worker") {
+                    	sh 'mvn clean test'
+                    }
+            	}  
+   	    }	
 
             stage('Package') {
                 steps {
                     echo "Building worker application.."
-                    sh 'mvn compile'
-                }
-            }
-        }
+        	    dir("worker") {
+                    	sh 'mvn compile'
+                    }
+            	}
+	    }
     }
     
     post {
