@@ -30,8 +30,10 @@ pipeline {
             }
         }
     }
+    
     post {
         always {
             echo "Hello World!!"
         }
     }
+}
